@@ -1,7 +1,14 @@
-# Richy System Info
-# Conky, a system monitor, based on torsmo
-# 
-# 
+#==============================================================================
+#                              conkyrc  Richy_System
+# Date    : 05/08/2019
+# Author  : wmrato
+# Version : v0.1c
+# License : Distributed under the terms of GNU GPL version 2 or later
+#
+#               Conky, a system monitor, based on torsmo 
+## sources:
+# Richy_System: https://github.com/wmrato/conky/tree/master/Richy-System
+#==============================================================================
 
 alignment top_left
   background false
@@ -29,10 +36,11 @@ alignment top_left
   use_spacer none
   extra_newline false
 
-gap_x 1000
+gap_x 10
 gap_y 10
   minimum_height 100
 	minimum_width 300
+minimum_size 100 100
 
   own_window = true
 	own_window_type normal
@@ -41,6 +49,8 @@ own_window_argb_visual no
 own_window_argb_value 50
   own_window_class Conky
   own_window_type desktop
+own_window_transparent yes
+own_window_colour 000000
 
   show_graph_scale false
   show_graph_range false
@@ -51,9 +61,10 @@ own_window_argb_value 50
   default_shade_color black
 	xftalpha 0.3
 
-own_window_transparent yes
-own_window_colour 000000
-minimum_size 0 0
+
+
+
+##     System information using conky capabilities
 TEXT
 ${time %H:%M:%S}${alignr}${time %d-%m-%y}
 ${voffset -16}${font sans-serif:bold:size=18}${alignc}${time %H:%M}${font}
@@ -102,8 +113,8 @@ $color ${top_mem name 2} ${top_mem pid 2} ${top_mem cpu 2} ${top_mem mem 2}
 $color ${top_mem name 3} ${top_mem pid 3} ${top_mem cpu 3} ${top_mem mem 3}
  
 ${color #0077ff}${font sans-serif:bold:size=9}Network: ${hr 2}
-${color #0077ff}Net Down:$color ${downspeed eth0} k/s      ${color #0077ff}Net Up:$color ${upspeed eth0} k/s
-${color #0077ff}${downspeedgraph eth0 32,155 104E8B 0077ff} $alignr${color #0077ff}${upspeedgraph eth0 32,155 104E8B 0077ff}
+${color #0077ff}Net Down:$color ${downspeed enp3s0} k/s      ${color #0077ff}Net Up:$color ${upspeed enp3s0} k/s
+${color #0077ff}${downspeedgraph enp3s0 32,155 104E8B 0077ff} $alignr${color #0077ff}${upspeedgraph enp3s0 32,155 104E8B 0077ff}
 
 ${color #0077ff}Port(s)${alignr}#Connections
 $color Inbound: ${tcp_portmon 1 32767 count}  Outbound: ${tcp_portmon 32768 61000 count}${alignr}ALL: ${tcp_portmon 1 65535 count}
